@@ -510,10 +510,10 @@ function initializeCustomFunction(){
 
 (function(){
 	var mFrame = document.getElementById('main');
-	if($mainFrameStatus === 0){
-		mFrame.onload = initializeCustomFunction;
-	} else {
+	if($mainFrameStatus === 1){
 		initializeCustomFunction();
+	} else {
+		mFrame.onload = initializeCustomFunction;
 	}
 })();
 
