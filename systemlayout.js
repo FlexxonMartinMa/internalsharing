@@ -494,26 +494,20 @@ function createCoverDIV(id){
 	e.style.cssText = 'display:none;position:fixed;top:0px;left:0px;height:100%;width:100%;overflow:hidden;z-index:999000;';
 	e.id = id||'';
 }
-(function(){
-	var d = document;
-	d.body.onload = function(){
-		console.log('UserJS: 1 - Document Ready!');
-		var mFrame = d.getElementById('main');
-		if(mFrame){
-			console.log('UserJS: 2 - Frame Found!');
-			mFrame.onload = function(){
-				console.log('UserJS: 3 - Frame Onloaded!');
-				var fcW = mFrame.contentWindow;
-				var pageTitle = fcW.document.getElementById('page-caption');
-				if(pageTitle){
-					console.log('UserJS: 4 - Got Frame Title Wrapper!');
-					timerGetTitle(fcW,600);
-					createCoverDIV('bodycover');
-					createCoverDIV('bodycover2');
-				}
-			};
-		}
-	};
-})();
+
+function initializeCustomFunction(){
+	console.log('UserJS: 3 - Frame Onloaded!');
+	var mFrame = document.getElementById('main');
+	var fcW = mFrame.contentWindow;
+	var pageTitle = fcW.document.getElementById('page-caption');
+	if(pageTitle){
+		console.log('UserJS: 4 - Got Frame Title Wrapper!');
+		timerGetTitle(fcW,600);
+		createCoverDIV('bodycover');
+		createCoverDIV('bodycover2');
+	}
+}
+
+initializeCustomFunction();
 
 
