@@ -508,6 +508,12 @@ function initializeCustomFunction(){
 	}
 }
 
-initializeCustomFunction();
-
+(function(){
+	var mFrame = document.getElementById('main');
+	if($mainFrameStatus === 0){
+		mFrame.onload = initializeCustomFunction;
+	} else {
+		initializeCustomFunction();
+	}
+})();
 
